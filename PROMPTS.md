@@ -143,7 +143,7 @@ Necesito implementar aplicar_funcion, componer, memoizar y reducir en Python 3.1
 
 ---
 
-### 7 - operaciones.py
+### 7 - operaciones.py (enfoques alternativos)
 
 **Herramienta**: 
 Gemini
