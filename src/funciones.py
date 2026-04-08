@@ -7,17 +7,16 @@ def aplicar_funcion(lista: list, func) -> list:
     """
     Aplica func a cada elemento de la lista y retorna la nueva lista.
     """
-    # TU CÓDIGO AQUÍ
-    pass
-
+    return [func(x) for x in lista]
 
 def componer(f, g):
     """
     Retorna una nueva función que aplica g y luego f.
     Ejemplo: componer(f, g)(x) == f(g(x))
     """
-    # TU CÓDIGO AQUÍ
-    pass
+    def funcion_nueva(x):
+        return f(g(x))
+    return funcion_nueva
 
 
 def memoizar(func):
@@ -26,8 +25,12 @@ def memoizar(func):
     Si se llama con los mismos argumentos, retorna el resultado cacheado.
     """
     cache = {}
-    # TU CÓDIGO AQUÍ
-    pass
+    def version_con_cache(*args):
+        # Si no lo calculamos antes, lo guardamos
+        if args not in cache:
+            cache[args] = func(*args)
+        return cache[args]
+    return version_con_cache
 
 
 def reducir(lista: list, func, inicial):
@@ -37,5 +40,7 @@ def reducir(lista: list, func, inicial):
     Ejemplo: reducir([1,2,3], lambda a,b: a+b, 0) -> 6
     NO uses functools.reduce
     """
-    # TU CÓDIGO AQUÍ
-    pass
+    acumulador = inicial
+    for elemento in lista:
+        acumulador = func(acumulador, elemento)
+    return acumulador
