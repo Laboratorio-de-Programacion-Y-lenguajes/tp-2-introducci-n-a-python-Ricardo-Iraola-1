@@ -9,8 +9,11 @@ def contar_palabras(texto: str) -> dict:
     Ejemplo: contar_palabras("hola mundo hola") -> {"hola": 2, "mundo": 1}
     Las palabras deben ser comparadas en minúsculas.
     """
-    # TU CÓDIGO AQUÍ
-    pass
+    palabras = texto.lower().split()
+    resultado = {}
+    for p in palabras:
+        resultado[p] = resultado.get(p, 0) + 1
+    return resultado
 
 
 def invertir_diccionario(d: dict) -> dict:
@@ -18,16 +21,17 @@ def invertir_diccionario(d: dict) -> dict:
     Retorna un nuevo diccionario con claves y valores intercambiados.
     Ejemplo: invertir_diccionario({"a": 1}) -> {1: "a"}
     """
-    # TU CÓDIGO AQUÍ
-    pass
+    return {valor: clave for clave, valor in d.items()}
 
 
 def merge_diccionarios(d1: dict, d2: dict) -> dict:
     """
     Combina dos diccionarios. Si hay claves repetidas, prevalece d2.
     """
-    # TU CÓDIGO AQUÍ
-    pass
+    # Creamos una copia de d1 y actualizamos con d2
+    resultado = d1.copy()
+    resultado.update(d2)
+    return resultado
 
 
 def filtrar_por_valor(d: dict, minimo: int) -> dict:
@@ -35,5 +39,4 @@ def filtrar_por_valor(d: dict, minimo: int) -> dict:
     Retorna un nuevo diccionario con solo los pares
     cuyo valor sea >= minimo.
     """
-    # TU CÓDIGO AQUÍ
-    pass
+    return {k: v for k, v in d.items() if v >= minimo}
